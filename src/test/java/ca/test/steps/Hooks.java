@@ -17,6 +17,7 @@ public class Hooks {
 
     public void statup() throws IOException {
         KnowsTestContext.driver = utils.getDriver(reader.properties().getProperty("browser"));
+
     }
 
     @After

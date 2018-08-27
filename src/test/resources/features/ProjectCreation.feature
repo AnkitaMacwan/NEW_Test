@@ -1,8 +1,11 @@
 Feature: Full workflow
 
-  Scenario Outline: Project creation, Spec creation and Quote Creation
+  Scenario Outline: Project creation
 
-    Given User is on Project Tracker board
+    Given User is on ATS login page
+    And Login to his account with username '<username>'
+    And password '<password>'
+    And click on Login
     When Create a Project
     And Enter the project name '<projectname>'
     And Enter the LeadSourceType '<LeadsourceType>'
@@ -20,8 +23,8 @@ Feature: Full workflow
     And Click on Submit button
     Then See the Project detail page
     Examples:
-      | projectname  | LeadsourceType | LeadsourceNumber | dateofbid  | address | country | province | city    | buildingclassandtype | buildingtype       | squareFootage | projectValuation | projectPhase |
+      | username           | password | projectname  | LeadsourceType | LeadsourceNumber | dateofbid  | address | country | province | city    | buildingclassandtype | buildingtype       | squareFootage | projectValuation | projectPhase |
 
-      | Test Project | Dodge          | 123456789        | 30-08-2018 | Test    | Canada  | Ontario  | Toronto | Commercial           | Bar and Restaurant | 5000          | 50000            | Pre-design   |
+      | brandon@atsspec.co | B4ck00fU | Test Project | Dodge          | 123456789        | 2018-08-30 | Test    | Canada  | Ontario  | Toronto | Commercial           | Bar and Restaurant | 5000          | 50000            | Pre-design   |
 
 

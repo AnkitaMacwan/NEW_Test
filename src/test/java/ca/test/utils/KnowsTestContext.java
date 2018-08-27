@@ -1,9 +1,11 @@
 package ca.test.utils;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Wait;
 
 public class KnowsTestContext {
 
     public static WebDriver driver;
-    public static int timeout = 500 ;
+    public static int timeout = 30000;
+    public static Wait<WebDriver> wait;
 }
