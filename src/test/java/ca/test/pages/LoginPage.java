@@ -40,7 +40,6 @@ public class LoginPage {
 
     public void loginbutton() {
         utils.waitForElements(loginbutton, KnowsTestContext.timeout, KnowsTestContext.driver);
-        //  KnowsTestContext.wait.until(ExpectedConditions.elementToBeClickable(loginbutton));
         loginbutton.click();
 
     }

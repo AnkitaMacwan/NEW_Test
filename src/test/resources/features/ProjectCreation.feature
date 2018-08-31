@@ -1,6 +1,6 @@
-Feature: Full workflow
+Feature: Project Creation
 
-  Scenario Outline: Project creation
+  Scenario Outline: Create a Project from Project Tracker
 
     Given User is on ATS login page
     And Login to his account with username '<username>'

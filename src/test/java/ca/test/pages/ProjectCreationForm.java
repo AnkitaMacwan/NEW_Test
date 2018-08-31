@@ -49,7 +49,7 @@ public class ProjectCreationForm {
     public WebElement projectPhase;
     @FindBy(xpath = "//div[@class='modal-footer']/div[@class='text-right']/button[@class='btn btn-primary']")
     public WebElement submit;
-    @FindBy(xpath = "/html/body/main[@class='container-fluid']/section[@class='row']/div[@class='col-md-6 col-sm-12 public-widgets']/div[@class='panel panel-widget'][1]/header[@id='widget-job-info-heading']/h4")
+    @FindBy(xpath = "//div[@id='widget-MyUploads']/div[@class='panel-body']/div[2]/div[@class='table-responsive']/table[@class='table table-condensed table-hover table-striped']/thead/tr/th[1]")
     public WebElement projectDetail;
 
 
@@ -170,7 +170,7 @@ public class ProjectCreationForm {
     public void projectDetail() {
         utils.waitForElements(projectDetail, KnowsTestContext.timeout, KnowsTestContext.driver);
         String actual = projectDetail.getText();
-        String expected = "  Project Information";
+        String expected = "Uploaded By";
         Assert.assertEquals(expected, actual);
     }
 
