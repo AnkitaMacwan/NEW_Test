@@ -17,10 +17,16 @@ Feature: Spec Creation
     And insert the square footage '<square footage>'
     And insert your name '<yourname>'
     And click on Create
+    And add a room '<room>'
+    And add a product category '<productcategory>'
+    And add product Type '<producttype>'
+    And add product '<product>'
+    And save the drawing
     Then verify the created spec
+
     Examples:
-      | username           | password | internalnumber | specname   | buildingclass | buildingtype       | state      | city  | address | square footage | yourname     |
-      | brandon@atsspec.co | B4ck00fU | 789654         | QA Test123 | Commercial    | Bar and Restaurant | California | Acton | Test    | 5000           | Aimée Holmes |
+      | username           | password  | internalnumber | specname | buildingclass | buildingtype       | state   | city    | address | square footage | yourname     | room    | productcategory   | producttype | product |
+      | brandon@atsspec.co | Ats123456 | 789654         | spec17   | Commercial    | Bar and Restaurant | Ontario | Toronto | Test    | 5000           | Aimée Holmes | General | Plumbing Fixtures | 8081        | 74631   |
 
 
 

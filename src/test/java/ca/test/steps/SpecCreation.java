@@ -95,10 +95,40 @@ public class SpecCreation {
         speccreation.create();
     }
 
+//    @Then("^verify the created spec$")
+//    public void verify_the_created_spec() throws Throwable {
+//        speccreation.specLoad();
+//    }
+
+    @When("^add a room '(.*)'")
+    public void add_a_room(String rm) throws Throwable {
+        speccreation.addRoom(rm);
+    }
+
+    @When("^add a product category '(.*)'")
+    public void add_a_product_category(String product) throws Throwable {
+        speccreation.addProductcategory(product);
+    }
+
+    @When("^add product Type '(.*)'")
+    public void add_any_product(String productType) throws Throwable {
+        speccreation.addProductType(productType);
+    }
+
+    @When("^add product '(.*)'")
+    public void save_the_drawing(String product) throws Throwable {
+        speccreation.addProduct(product);
+    }
+
+    @When("save the drawing$")
+    public void save_the_drawing() {
+        speccreation.savespec();
+        speccreation.saveAndContinue();
+    }
+
     @Then("^verify the created spec$")
     public void verify_the_created_spec() throws Throwable {
         speccreation.specLoad();
     }
-
 }
 

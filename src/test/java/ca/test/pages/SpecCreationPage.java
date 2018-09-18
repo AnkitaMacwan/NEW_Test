@@ -3,6 +3,7 @@ package ca.test.pages;
 import ca.test.utils.CommonUtils;
 import ca.test.utils.KnowsTestContext;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -37,6 +38,16 @@ public class SpecCreationPage {
     public WebElement Create;
     @FindBy(xpath = "//div[@class='your-rooms-holder col-xs-18']/div[@class='group-of-rooms panel-group']/div[1]/a")
     public WebElement SpecLoad;
+    @FindBy(xpath = "//div[1]/div[@class='room-holder col-xs-6']/div[@class='group-of-rooms col-xs-24']")
+    public WebElement RoomSelection;
+    @FindBy(name = "drawing-by")
+    public WebElement ProductCategorySelection;
+    @FindBy(xpath = "//*[@id=\"submit\"]")
+    public WebElement Continue;
+    @FindBy(xpath = "//*[@id=\"continue\"]")
+    public WebElement SaveAndContinue;
+    @FindBy(xpath = "//div[@class='spec-list-tab']/div[@class='container']/div[@class='col-xs-6']/h3")
+    public WebElement SpecList;
 
     CommonUtils utils = new CommonUtils();
 
@@ -76,9 +87,10 @@ public class SpecCreationPage {
         drpbuildType.selectByVisibleText(bldType);
     }
 
-    public void state(String stt) {
+    public void state(String stt) throws InterruptedException {
         utils.waitForElements(State, KnowsTestContext.timeout, KnowsTestContext.driver);
         Select drpstate = new Select(State);
+        //Thread.sleep(15000);
         drpstate.selectByVisibleText(stt);
     }
 
@@ -111,10 +123,54 @@ public class SpecCreationPage {
         Create.click();
     }
 
+
+    public void addRoom(String room) throws InterruptedException {
+        String Xpath = "//*[text()='" + room + "']//*[@class='add-room-icon-link']";
+        utils.waitForElements(RoomSelection, KnowsTestContext.timeout, KnowsTestContext.driver);
+        Thread.sleep(3000);
+        KnowsTestContext.driver.findElement(By.xpath(Xpath)).click();
+
+    }
+
+    public void addProductcategory(String productcategory) {
+        utils.waitForElements(ProductCategorySelection, KnowsTestContext.timeout, KnowsTestContext.driver);
+        Select drpaddProductCategory = new Select(ProductCategorySelection);
+        drpaddProductCategory.selectByVisibleText(productcategory);
+    }
+
+    public void addProductType(String productType) throws InterruptedException {
+        String Xpath = "//*[@id=\"link_" + productType + "\"]/p";
+        Thread.sleep(15000);
+        KnowsTestContext.driver.findElement(By.xpath(Xpath)).click();
+    }
+
+    public void addProduct(String product) throws InterruptedException {
+        String Xpath = "//*[@id=\"submit_" + product + "\"]";
+        Thread.sleep(20000);
+        KnowsTestContext.driver.findElement(By.xpath(Xpath)).click();
+    }
+
+    public void savespec() {
+        utils.waitForElements(Continue, KnowsTestContext.timeout, KnowsTestContext.driver);
+        Continue.click();
+    }
+
+    public void saveAndContinue() {
+        utils.waitForElements(SaveAndContinue, KnowsTestContext.timeout, KnowsTestContext.driver);
+        SaveAndContinue.click();
+    }
+
+//    public void specLoad() {
+//        utils.waitForElements(SpecLoad, KnowsTestContext.timeout, KnowsTestContext.driver);
+//        String actual = SpecLoad.getText();
+//        String expected = ("No rooms added, please click here or in the left menu to add a room");
+//        Assert.assertEquals(actual, expected);
+//    }
+
     public void specLoad() {
-        utils.waitForElements(SpecLoad, KnowsTestContext.timeout, KnowsTestContext.driver);
-        String actual = SpecLoad.getText();
-        String expected = ("No rooms added, please click here or in the left menu to add a room");
+        utils.waitForElements(SpecList, KnowsTestContext.timeout, KnowsTestContext.driver);
+        String actual = SpecList.getText();
+        String expected = ("ATS Spec");
         Assert.assertEquals(actual, expected);
     }
 }
