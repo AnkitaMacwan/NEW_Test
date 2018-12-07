@@ -25,8 +25,8 @@ Feature: Spec Creation
     Then verify the created spec
 
     Examples:
-      | username           | password  | internalnumber | specname | buildingclass | buildingtype       | state   | city    | address | square footage | yourname     | room    | productcategory   | producttype | product |
-      | brandon@atsspec.co | Ats123456 | 789654         | spec17   | Commercial    | Bar and Restaurant | Ontario | Toronto | Test    | 5000           | Aimée Holmes | General | Plumbing Fixtures | 8081        | 74631   |
+      | username           | password | internalnumber | specname | buildingclass | buildingtype       | state      | city  | address | square footage | yourname     | room    | productcategory   | producttype | product |
+      | herrick@atsspec.co | ZAQ12wsx | 789654         | spec2696 | Commercial    | Bar and Restaurant | California | Acton | Test    | 5000           | Aimée Holmes | General | Plumbing Fixtures | 8081        | 74631   |
 
 
 

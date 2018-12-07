@@ -86,7 +86,7 @@ public class SpecCreation {
     }
 
     @When("^insert your name '(.*)'")
-    public void insert_your_name_Aimée_Holmes(String urname) throws Throwable {
+    public void insert_your_name_(String urname) throws Throwable {
         speccreation.urname(urname);
     }
 

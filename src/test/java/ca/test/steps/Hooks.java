@@ -27,11 +27,18 @@ public class Hooks {
     public void tearDown(Scenario scenario) {
         if (scenario.isFailed()) {
             scenario.embed(((TakesScreenshot) KnowsTestContext.driver).getScreenshotAs(OutputType.BYTES), "image/png");
-            KnowsTestContext.driver.quit();
             KnowsTestContext.driver.close();
 
+        } else {
+
+            KnowsTestContext.driver.close();
         }
 
     }
 
 }
+
+
+
+
+

@@ -3,6 +3,7 @@ package ca.test.pages;
 import ca.test.utils.CommonUtils;
 import ca.test.utils.KnowsTestContext;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -15,11 +16,11 @@ public class ProjectCreationForm {
     public WebElement solutions;
     @FindBy(xpath = "//div[@class='solutions_menu container text-center']/div[@class='row'][2]/div[@class='col-xs-6 menu_item'][4]/a[@class='btn btn-primary']")
     public WebElement startTracking;
-    @FindBy(xpath = "//div[@class='col-xs-12']/div[@class='navbar-collapse collapse navbar-responsive-collapse']/ul[@class='nav navbar-nav']/li[@class='dropdown']/a[@id='xmenu2']")
+    @FindBy(xpath = "/html/body/div/div/div/div[1]/div/ul/a[3]/div[2]/h3")
     public WebElement projects;
     @FindBy(xpath = "//div[@class='col-xs-12']/div[@class='navbar-collapse collapse navbar-responsive-collapse']/ul[@class='nav navbar-nav']/li[@class='dropdown open']/ul[@class='dropdown-menu']/li[1]/a")
     public WebElement projectList;
-    @FindBy(xpath = "//div[@class='col-xs-6'][2]/div[@class='pull-right']/div/button[@class='btn btn-primary btn-sm']/span")
+    @FindBy(xpath = "//div[@class='pull-right']/div/button[@class='btn btn-primary btn-sm']/span")
     public WebElement createProject;
     @FindBy(xpath = "//div[1]/div[@class='form-group form-group-sm']/div[@class='col-sm-9']/input[@class='form-control']")
     public WebElement projectName;
@@ -74,8 +75,10 @@ public class ProjectCreationForm {
     }
 
     public void projects() {
+        KnowsTestContext.driver.switchTo().frame(KnowsTestContext.driver.findElement(By.className("dashboard-content")));
         utils.waitForElements(projects, KnowsTestContext.timeout, KnowsTestContext.driver);
         projects.click();
+        KnowsTestContext.driver.switchTo().defaultContent();
     }
 
     public void projectList() {

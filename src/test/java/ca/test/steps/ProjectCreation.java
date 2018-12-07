@@ -42,11 +42,10 @@ public class ProjectCreation {
 
     @When("^Create a Project$")
     public void create_a_Project() throws Throwable {
-        //Thread.sleep(9000);
+        // Thread.sleep(50000);
         project.solution();
         project.startTracking();
         project.projects();
-        project.projectList();
         project.createProject();
 
 

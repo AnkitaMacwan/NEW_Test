@@ -15,7 +15,7 @@ import java.io.File;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 
-        features = "src/test/resources/features/SpecCreation.feature",
+        features = "src/test/resources/features/QuoteCreation.feature",
         glue = "ca.test.steps",
         format = {"pretty", "html:Reports"},
         plugin = {"com.cucumber.listener.ExtentCucumberFormatter:output/report.html"}
