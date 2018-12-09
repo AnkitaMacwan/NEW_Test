@@ -2,13 +2,7 @@ Feature: Quote Creation from PT
 
   Scenario Outline: Create a Quote
 
-    Given User is on ATS login page
-    And Login to his account with username '<username>'
-    And password '<password>'
-    And click on Login
-    And login as user '<user>'
-    And login to project tracker '<site>'
-    And click on direct login
+    Given login as user '<username>' and '<password>' and  '<user>'
     When create a quote
     And enter a job name '<jobname>'
     And select a job country '<country>'
@@ -32,5 +26,5 @@ Feature: Quote Creation from PT
     Then click on save
 
     Examples:
-      | username           | password | user  | site                | jobname | country | province | city    | address | job type                        | outsidesalesrep | customer                     | engineer     | architect      | sectiontitle | productnumber                                  | specialterms | sectioncomment |
-      | herrick@atsspec.co | ZAQ12wsx | 20468 | ATS Project Tracker | AM test | Canada  | Ontario  | Toronto | test    | Commercial - Bar and Restaurant | Avery White     | Brookfield Global Integrated | John A Wells | David Johnston | test         | Trespa® Athlon Unicolor Color To Be Determined | Test         | Test           |
+      | username           | password | user  | jobname | country | province | city    | address | job type                        | outsidesalesrep | customer                     | engineer     | architect      | sectiontitle | productnumber                                  | specialterms | sectioncomment |
+      | herrick@atsspec.co | ZAQ12wsx | 20468 | AM test | Canada  | Ontario  | Toronto | test    | Commercial - Bar and Restaurant | Avery White     | Brookfield Global Integrated | John A Wells | David Johnston | test         | Trespa® Athlon Unicolor Color To Be Determined | Test         | Test           |

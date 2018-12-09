@@ -18,22 +18,28 @@ public class QuoteCreation {
     ProjectCreationForm projectcreationform = new ProjectCreationForm(KnowsTestContext.driver);
     ConfigReader reader = new ConfigReader();
 
-    @Given("^login as user '(.*)'")
-    public void login_as_other_usres_account_Linda_Fogazzi(String user) throws Throwable {
-        projectcreationform.solution();
-        projectcreationform.startTracking();
+    @Given("^login as user '(.*)' and '(.*)' and  '(.*)'")
+    public void login_as_other_usres_account_Linda_Fogazzi(String username, String password, String user) throws Throwable {
+        KnowsTestContext.driver.get(reader.properties().getProperty("url"));
+        KnowsTestContext.driver.manage().window().maximize();
+        login.login();
+        login.username(username);
+        login.password(password);
+        login.loginbutton();
+        Thread.sleep(10000);
         quotecreationform.loginAs(user);
+        
     }
 
-    @Given("^login to project tracker '(.*)'")
-    public void login_to_projecttracker(String site) throws Throwable {
-        quotecreationform.site(site);
-    }
+    // @Given("^login to project tracker '(.*)'")
+    //  public void login_to_projecttracker(String site) throws Throwable {
+    // quotecreationform.site(site);
+    //}
 
-    @Given("^click on direct login$")
-    public void click_on_login() throws InterruptedException {
-        quotecreationform.directlogin();
-    }
+    // @Given("^click on direct login$")
+    // public void click_on_login() throws InterruptedException {
+    // quotecreationform.directlogin();
+    //}
 
     @When("^create a quote$")
     public void create_a_quote() throws Throwable {

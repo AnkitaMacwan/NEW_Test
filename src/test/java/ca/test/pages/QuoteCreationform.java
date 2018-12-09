@@ -81,15 +81,15 @@ public class QuoteCreationform {
 
 
     public void loginAs(String userid) throws InterruptedException {
-        KnowsTestContext.driver.get("http://hotfix.atsspec.local/crm/index/page/#?page=details&type=user&id=" + userid + "");
-        // Thread.sleep(20000);
+        KnowsTestContext.driver.get("http://hotfix.atsspec.local/crm/user/login-as-user/?userId=" + userid + "&isDemo=0&siteId=44");
+        Thread.sleep(5000);
     }
 
     public void site(String site) throws InterruptedException {
         utils.waitForElements(loginAs, KnowsTestContext.timeout, KnowsTestContext.driver);
         Select drpsite = new Select(loginAs);
         drpsite.selectByVisibleText(site);
-        //Thread.sleep(10000);
+
 
     }
 
