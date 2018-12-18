@@ -3,7 +3,6 @@ package ca.test.steps;
 import ca.test.pages.LoginPage;
 import ca.test.utils.ConfigReader;
 import ca.test.utils.KnowsTestContext;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -23,9 +22,9 @@ public class Login {
     }
 
     @When("^User enters '(.*)' and '(.*)'")
-    public void user_enters_UserName_and_Password(String username , String password) throws Throwable {
-       login.username(username);
-       login.password(password);
+    public void user_enters_UserName_and_Password(String username, String password) throws Throwable {
+        login.username(username);
+        login.password(password);
 
     }
 
@@ -35,5 +34,11 @@ public class Login {
 
     }
 
+    @Then("^validate the error message '(.*)'")
+    public void validate_the_error_message_Login_Failed_please_try_again(String error) throws Throwable {
+        login.validation(error);
+
+
+    }
 
 }

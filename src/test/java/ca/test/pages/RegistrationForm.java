@@ -47,8 +47,11 @@ public class RegistrationForm {
     public WebElement Submit;
     @FindBy(xpath = "//*[@id=\"registration-app\"]/div/div/h2")
     public WebElement SuccessMessage;
-    CommonUtils utils = new CommonUtils();
+    @FindBy(xpath = "//small[@class='text-danger' and contains(text(),'Required')]/../preceding-sibling::*")
+    public WebElement requirederrormessage;
 
+
+    CommonUtils utils = new CommonUtils();
 
     public RegistrationForm(WebDriver driver) {
         PageFactory.initElements(driver, this);
@@ -150,6 +153,13 @@ public class RegistrationForm {
         String expectedText = ("Congratulations!\n" +
                 "You’ve successfully signed up to ATS Spec.");
         Assert.assertEquals(expectedText, actualText);
+    }
+
+    public void requiredMessage(String name) {
+        utils.waitForElements(requirederrormessage, KnowsTestContext.timeout, KnowsTestContext.driver);
+        String actualMessage = requirederrormessage.getAttribute(name);
+        String expected = "Required";
+        Assert.assertEquals(expected, actualMessage);
     }
 
 

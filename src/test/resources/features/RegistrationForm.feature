@@ -23,4 +23,4 @@ Feature: Spec site Registration
     And Compare new user with sql database '<user>'
     Examples:
       | firstname | lastname | username         | phonenumber | emailaddreess          | companyname | companytype | address | country | province | city    | postalcode | reference |
-      | Ankitaa   | Macwana  | AnkitaJMacrrrrr5 | 6473231385  | ankita+311@atsspec.com | QAATS       | Architect   | Test    | Canada  | Ontario  | Toronto | M9V3G2     | Other     |
+      |           | Macwan   | AnkitaJMacrrrrr5 | 6473231385  | ankita+311@atsspec.com | QAATS       | Architect   | Test    | Canada  | Ontario  | Toronto | M9V3G2     | Other     |

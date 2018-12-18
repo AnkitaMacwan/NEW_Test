@@ -27,10 +27,11 @@ public class Registration {
         register.signUp();
     }
 
-    @When("^User enters firstname '(.*)' and lastname '(.*)")
+    @When("^User enters firstname '(.*)' and lastname '(.*)'")
     public void user_enters_firstname_firstname_and_lastname_lastname(String firstname, String lastname) throws Throwable {
         register.firstName(firstname);
         register.lastName(lastname);
+
     }
 
 
